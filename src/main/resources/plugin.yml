@@ -1,0 +1,11 @@
+name: CustomScopeTexture
+version: ${project.version}
+main: customscopetexture.customscopetexture.CustomScopeTexture
+description: CS武器のズーム時のスコープのテクスチャをカスタマイズできるようにするPluginです
+depend:
+  - CrackShot
+
+commands:
+  cst:
+    usage:  /cst
+    description: CustomScopeTextureのCommand
