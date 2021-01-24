@@ -9,8 +9,5 @@
         <module name="CustomScopeTexture" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CustomScopeTexture" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

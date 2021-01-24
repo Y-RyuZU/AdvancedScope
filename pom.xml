@@ -4,14 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>CustomScopeTexture</groupId>
-    <artifactId>CustomScopeTexture</artifactId>
+    <groupId>AdvancedScope</groupId>
+    <artifactId>AdvancedScope</artifactId>
     <version>1.12.2</version>
     <packaging>jar</packaging>
 
-    <name>CustomScopeTexture</name>
+    <name>AdvancedScope</name>
 
-    <description>CS武器のズーム時のスコープのテクスチャをカスタマイズできるようにするPluginです</description>
+    <description>CS武器のスコープを拡張させるPluginです</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -79,6 +79,13 @@
             <scope>system</scope>
             <version>0.98.9</version>
             <systemPath>${basedir}/CrackShot.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
