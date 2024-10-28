@@ -6,7 +6,7 @@
 
     <groupId>AdvancedScope</groupId>
     <artifactId>AdvancedScope</artifactId>
-    <version>1.12.2</version>
+    <version>1.17</version>
     <packaging>jar</packaging>
 
     <name>AdvancedScope</name>
@@ -69,7 +69,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.17-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
@@ -77,15 +77,8 @@
             <groupId>com.shampaggon</groupId>
             <artifactId>crackshot</artifactId>
             <scope>system</scope>
-            <version>0.98.9</version>
+            <version>0.98.11</version>
             <systemPath>${basedir}/CrackShot.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

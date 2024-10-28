@@ -1,15 +1,13 @@
 package advancedscope.advancedscope;
 
+import com.shampaggon.crackshot.CSUtility;
+import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 import com.shampaggon.crackshot.events.WeaponPrepareShootEvent;
 import com.shampaggon.crackshot.events.WeaponScopeEvent;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.minecraft.server.v1_12_R1.*;
-import org.apache.commons.lang3.StringUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -65,9 +63,28 @@ public class ScopeSystem implements Listener {
     public void CancelShot(WeaponPrepareShootEvent e) {
         Player p = e.getPlayer();
         ScopeData SD = getWeaponTitle(e.getWeaponTitle());
-        if (SD == null) {
-            return;
+        if (SD == null) return;
+        if(CanShotDelay.get(p.getUniqueId()) != null) {
+            for(SoundSetting SS : SD.ShotCancelSound) {
+                SS.playSound(e.getPlayer());
+            }
+            e.setCancelled(true);
         }
+        if(HoldGun.get(p.getUniqueId()) != null) {
+            for(SoundSetting SS : SD.HoldingGunSound) {
+                SS.playSound(e.getPlayer());
+            }
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void CancelMeleeAttack(WeaponDamageEntityEvent e) {
+        Player p = e.getPlayer();
+        CSUtility CS = new CSUtility();
+        if(!CS.getHandle().melees.contains(e.getWeaponTitle())) return;
+        ScopeData SD = getWeaponTitle(e.getWeaponTitle());
+        if (SD == null) return;
         if(CanShotDelay.get(p.getUniqueId()) != null) {
             for(SoundSetting SS : SD.ShotCancelSound) {
                 SS.playSound(e.getPlayer());
